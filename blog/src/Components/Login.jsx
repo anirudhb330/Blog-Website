@@ -48,6 +48,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
+import { PASSWORD_REGEX } from '../Constants/constants';
 
 export const LoginPage = () => {
   const [userDetails, setUserDetails] = useState({
@@ -71,7 +72,7 @@ export const LoginPage = () => {
     }
 
     // Password strength check
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+    const passwordRegex = PASSWORD_REGEX;
     if (!userDetails.password || !passwordRegex.test(userDetails.password)) {
       newErrors.password = 'Password must be at least 6 characters with at least one uppercase and one lowercase letter';
       valid = false;
